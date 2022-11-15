@@ -35,7 +35,7 @@
     "eslint-config-next": "13.0.3",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-standard-jsx": "11.0.0",
-    "eslint-config-standard-react": "github:standard/eslint-config-standard-react#3f979843e4f79ec76978e65b2b0a99fda3722850",
+    "eslint-config-standard-react": "12.0.0",
     "eslint-config-standard-with-typescript": "23.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
