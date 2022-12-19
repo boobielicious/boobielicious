@@ -22,7 +22,7 @@
     "sharp": "0.31.2"
   },
   "devDependencies": {
-    "@codedependant/semantic-release-docker": "4.1.0",
+    "@codedependant/semantic-release-docker": "4.2.0",
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
     "@semantic-release/changelog": "6.0.2",
