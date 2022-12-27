@@ -1,12 +1,12 @@
 # Install dependencies only when needed
-FROM node:18.12.1-bullseye-slim AS deps
+FROM node:19.3.0-bullseye-slim AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install -g npm@9
 RUN npm ci --omit=dev --ignore-scripts
 
 # Rebuild the source code only when needed
-FROM node:18.12.1-bullseye-slim AS builder
+FROM node:19.3.0-bullseye-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
@@ -14,7 +14,7 @@ RUN npm install -g npm@9
 RUN npm run build && npm ci --omit=dev --ignore-scripts --prefer-offline
 
 # Production image, copy all the files and run next
-FROM node:18.12.1-bullseye-slim AS runner
+FROM node:19.3.0-bullseye-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
