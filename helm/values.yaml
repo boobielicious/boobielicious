@@ -1,0 +1,38 @@
+image:
+  # -- image repository
+  repository: ghcr.io/boobielicious/boobielicious
+  # -- image tag
+  tag: 1.0.0
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    # -- Configure the Service port information here.
+    ports:
+      http:
+        # -- The port number
+        port: 3000
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    # -- Enables or disables the ingress
+    enabled: false
+    ## Configure the hosts for the ingress
+    hosts:
+      - # -- Host address. Helm template can be passed.
+        host: chart-example.local
+        ## Configure the paths for the host
+        paths:
+          -  # -- Path.  Helm template can be passed.
+            path: /
+            pathType: Prefix
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    tls: []
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local

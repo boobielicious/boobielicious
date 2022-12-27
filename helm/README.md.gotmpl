@@ -1,0 +1,21 @@
+# Boobielicious&reg;
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+## TL;DR
+
+```console
+$ helm repo add boobielicious https://boobielicious.github.io/helm-charts
+$ helm install boobielicious boobielicious/{{ template "chart.name" . }}
+```
+
+## Dependencies
+
+{{ template "chart.requirementsTable" . }}
+
+## Configuration
+
+The following table lists the most commonly configured parameters of the Boobielicious&reg; chart and their default values:
+
+{{ template "chart.valuesTable" . }}
