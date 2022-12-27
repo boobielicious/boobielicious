@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "standard",
+    "standard-with-typescript",
+    "standard-jsx",
+    "standard-react",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["simple-import-sort", "import", "prettier"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "no-console": "error",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+  }
+}
