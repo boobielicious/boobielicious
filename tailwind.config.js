@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       height: theme => ({
-        content: `calc(100vh - ${theme('spacing.16')})`
+        content: `calc(100vh - ${theme('spacing.14')})`
       }),
       minHeight: theme => ({
-        content: `calc(100vh - ${theme('spacing.16')})`,
-        16: theme('spacing.16')
+        content: `calc(100vh - ${theme('spacing.14')})`,
+        14: theme('spacing.14')
       })
     }
   },
