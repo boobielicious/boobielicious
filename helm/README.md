@@ -1,5 +1,5 @@
 # Boobielicious&reg;
-![Version: 0.0.0](https://img.shields.io/badge/Version-0.0.0-informational?style=flat-square) ![AppVersion: 0.0.0](https://img.shields.io/badge/AppVersion-0.0.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 Boobielicious® is a tasty tool for boob enthusiasts
 
@@ -22,6 +22,8 @@ The following table lists the most commonly configured parameters of the Boobiel
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env | object | `{"STASH_GRAPHQL_API":"https://stash.local/graphql"}` | Environment variables. |
+| env.STASH_GRAPHQL_API | string | `"https://stash.local/graphql"` | Stash GraphQL API endpoint |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/boobielicious/boobielicious"` | image repository |
 | image.tag | string | `"1.0.0"` | image tag |

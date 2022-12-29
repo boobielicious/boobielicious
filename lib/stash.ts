@@ -49,6 +49,7 @@ const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Pe
 // }
 
 export const getAllPerformers = cache(async (): Promise<Performer[]> => {
+  if (process.env.STASH_GRAPHQL_API == null) return []
   const { allPerformers } = await stash.allPerformers()
   if (allPerformers == null) return []
   return allPerformers.map(convertStashPerformer)
