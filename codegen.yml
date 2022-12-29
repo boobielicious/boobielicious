@@ -1,0 +1,12 @@
+overwrite: true
+generates:
+  generated/stash.ts:
+    schema: ${STASH_GRAPHQL_API}
+    documents: 'graphql/stash/**/*.graphql.ts'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+hooks:
+  afterAllFileWrite:
+    - eslint --fix

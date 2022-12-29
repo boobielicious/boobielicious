@@ -9,7 +9,18 @@ module.exports = {
       minHeight: theme => ({
         content: `calc(100vh - ${theme('spacing.14')})`,
         14: theme('spacing.14')
-      })
+      }),
+      saturate: {
+        25: '.25',
+        75: '.75'
+      },
+      spacing: {
+        120: '30rem',
+        128: '32rem'
+      },
+      transitionProperty: {
+        filter: 'filter'
+      }
     }
   },
   plugins: []
