@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@brpaz/semantic-release-helm": "1.1.0",
-    "@codedependant/semantic-release-docker": "4.2.0",
+    "@codedependant/semantic-release-docker": "4.3.0",
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
     "@graphql-codegen/cli": "2.16.2",
