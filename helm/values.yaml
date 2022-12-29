@@ -6,6 +6,11 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+# -- Environment variables.
+env:
+  # -- Stash GraphQL API endpoint
+  STASH_GRAPHQL_API: https://stash.local/graphql
+
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
