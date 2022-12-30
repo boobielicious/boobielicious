@@ -9,9 +9,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: process.env.STASH_IMAGE_REMOTE_PROTOCOL,
-        hostname: process.env.STASH_IMAGE_REMOTE_HOSTNAME,
-        port: process.env.STASH_IMAGE_REMOTE_PORT
+        protocol: process.env.IMAGE_REMOTE_PROTOCOL ?? 'http',
+        hostname: process.env.IMAGE_REMOTE_HOSTNAME ?? 'stash',
+        port: process.env.IMAGE_REMOTE_PORT ?? '9999'
       },
       {
         protocol: 'https',
