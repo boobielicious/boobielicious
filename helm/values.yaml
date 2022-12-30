@@ -18,6 +18,8 @@ env:
   STASH_IMAGE_REMOTE_PORT: "9999"
   # -- Twitter Access Token
   TWITTER_BEARER_TOKEN: ""
+  # -- Sharp path
+  NEXT_SHARP_PATH: /tmp/node_modules/sharp
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
