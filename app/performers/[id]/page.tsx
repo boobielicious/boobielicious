@@ -60,6 +60,7 @@ const Page = async ({ params: { id } }: Props): Promise<JSX.Element> => {
                         pathname: '/nzbhydra/search',
                         query: { q: name, stashId: id }
                       }}
+                      className="outline-none"
                     >
                       <li className="font-bold text-neutral-900 hover:text-neutral-400 dark:text-neutral-50">{name}</li>
                     </Link>
