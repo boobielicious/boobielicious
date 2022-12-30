@@ -4,12 +4,12 @@ import { GraphQLClient } from 'graphql-request'
 import { cache } from 'react'
 
 import { getSdk, StashPerformerFieldsFragment } from '../generated/stash'
-// import Twitter from '../lib/twitter'
 import { convertCupSize, Performer } from './performer'
+import Twitter from './twitter'
 
 const client = new GraphQLClient(process.env.STASH_GRAPHQL_API)
 const stash = getSdk(client)
-// const twitterClient = new Twitter(process.env.TWITTER_BEARER_TOKEN)
+const twitterClient = new Twitter(process.env.TWITTER_BEARER_TOKEN)
 
 const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Performer => {
   const { name, aliases, photo, hasFakeBoobs, isFavorite, measurements, instagram, twitter, id } = stashPerformer
@@ -56,14 +56,16 @@ export const getAllPerformers = cache(async (): Promise<Performer[]> => {
 })
 
 export const getPerformer = cache(async (id: string): Promise<Performer | undefined> => {
+  if (process.env.STASH_GRAPHQL_API == null) return undefined
+
   const { findPerformer } = await stash.findPerformer({ id })
   if (findPerformer == null) return undefined
 
   const performer = convertStashPerformer(findPerformer)
-  // const { twitter } = performer
+  const { twitter } = performer
   const [instagramImages, twitterImages, freeOnesImages] = await Promise.all([
     [],
-    [], // twitter != null ? twitterClient.getImages(twitter).catch(() => []) : Promise.resolve([]),
+    twitter != null ? twitterClient.getImages(twitter).catch(() => []) : Promise.resolve([]),
     []
     // freeOnes != null ? getPerformerPhotos(freeOnes).catch(() => []) : Promise.resolve([])
   ])

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.popup-arrow {
+  color: rgb(163 163 163);
+}

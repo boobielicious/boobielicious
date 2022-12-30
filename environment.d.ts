@@ -8,6 +8,7 @@ declare global {
       NODE_ENV: 'development' | 'production'
       PORT?: string
       STASH_GRAPHQL_API: string
+      TWITTER_BEARER_TOKEN: string
     }
   }
 }
