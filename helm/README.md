@@ -6,7 +6,7 @@ Boobielicious® is a tasty tool for boob enthusiasts
 ## TL;DR
 
 ```console
-$ helm repo add boobielicious https://boobielicious.github.io/helm-charts
+$ helm repo add boobielicious https://boobielicious.github.io/boobielicious
 $ helm install boobielicious boobielicious/boobielicious
 ```
 
@@ -22,8 +22,12 @@ The following table lists the most commonly configured parameters of the Boobiel
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{"STASH_GRAPHQL_API":"https://stash.local/graphql"}` | Environment variables. |
-| env.STASH_GRAPHQL_API | string | `"https://stash.local/graphql"` | Stash GraphQL API endpoint |
+| env | object | `{"STASH_GRAPHQL_API":"https://stash/graphql","STASH_IMAGE_REMOTE_HOSTNAME":"stash","STASH_IMAGE_REMOTE_PORT":"9999","STASH_IMAGE_REMOTE_PROTOCOL":"https","TWITTER_BEARER_TOKEN":""}` | Environment variables. |
+| env.STASH_GRAPHQL_API | string | `"https://stash/graphql"` | Stash GraphQL API endpoint |
+| env.STASH_IMAGE_REMOTE_HOSTNAME | string | `"stash"` | Stash image hostname |
+| env.STASH_IMAGE_REMOTE_PORT | string | `"9999"` | Stash image host port |
+| env.STASH_IMAGE_REMOTE_PROTOCOL | string | `"https"` | Stash image host protocol |
+| env.TWITTER_BEARER_TOKEN | string | `""` | Twitter Access Token |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/boobielicious/boobielicious"` | image repository |
 | image.tag | string | `"1.0.0"` | image tag |

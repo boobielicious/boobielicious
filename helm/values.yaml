@@ -9,7 +9,15 @@ image:
 # -- Environment variables.
 env:
   # -- Stash GraphQL API endpoint
-  STASH_GRAPHQL_API: https://stash.local/graphql
+  STASH_GRAPHQL_API: https://stash/graphql
+  # -- Stash image host protocol
+  STASH_IMAGE_REMOTE_PROTOCOL: https
+  # -- Stash image hostname
+  STASH_IMAGE_REMOTE_HOSTNAME: stash
+  # -- Stash image host port
+  STASH_IMAGE_REMOTE_PORT: "9999"
+  # -- Twitter Access Token
+  TWITTER_BEARER_TOKEN: ""
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
