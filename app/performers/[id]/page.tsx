@@ -96,6 +96,7 @@ const Page = async ({ params: { id } }: Props): Promise<JSX.Element> => {
                 height={512}
                 sizes="100vw"
                 quality={100}
+                priority={index === 0}
               />
             </li>
           ))}

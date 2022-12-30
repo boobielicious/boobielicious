@@ -10,9 +10,10 @@ interface Props {
   imageUrl?: string
   isFavorite?: boolean
   loading?: boolean
+  priority?: boolean
 }
 
-const PerformerCard = ({ className, name, imageUrl, label, isFavorite, loading }: Props): JSX.Element => {
+const PerformerCard = ({ className, name, imageUrl, label, isFavorite, loading, priority }: Props): JSX.Element => {
   const classNames = ['', className].filter(Boolean).join(' ').trim()
   return (
     <div className={classNames}>
@@ -26,6 +27,7 @@ const PerformerCard = ({ className, name, imageUrl, label, isFavorite, loading }
             alt={name ?? ''}
             width={384}
             height={512}
+            priority={priority}
           />
         )}
 

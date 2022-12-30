@@ -20,6 +20,7 @@ const HomePage = async (): Promise<JSX.Element> => {
                 label={`${hasNaturalBoobs != null ? (hasNaturalBoobs ? 'Natural ' : 'Fake ') : ''}${
                   bandSize != null ? bandSize : ''
                 }${cupSize != null ? cupSize : ''}`}
+                priority={index < 8}
               />
             </Link>
           </li>
