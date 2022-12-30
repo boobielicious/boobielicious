@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/boobielicious/boobielicious/compare/1.1.0...1.2.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* fixed border for images in safari ([63d116e](https://github.com/boobielicious/boobielicious/commit/63d116efcb60b74bf07294f5d48be005bf1208f4))
+* fixed remote pattern image envs ([71be633](https://github.com/boobielicious/boobielicious/commit/71be63363e01e506c40cb5603601f8d0ba7f0bee))
+
+
+### Features
+
+* added priority flag for images above the fold ([44dfd1f](https://github.com/boobielicious/boobielicious/commit/44dfd1ffee36c944f50aff2d8199d4098b36a391))
+
 # [1.1.0](https://github.com/boobielicious/boobielicious/compare/1.0.0...1.1.0) (2022-12-30)
 
 
