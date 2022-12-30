@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   boobielicious:
   - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2022-12-30T13:49:37.104631514Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.2.0
+    description: Boobielicious® is a tasty tool for boob enthusiasts
+    digest: c28b47037a85c0e9f46b446251b663d7950580abe4699aa5942dbeea1c507a92
+    home: https://boobielicious.github.io/boobielicious/
+    name: boobielicious
+    sources:
+    - https://github.com/boobielicious/boobielicious
+    urls:
+    - https://boobielicious.github.io/boobielicious/boobielicious-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     appVersion: 1.0.0
     created: "2022-12-28T21:59:23.584396301Z"
     dependencies:
@@ -17,4 +33,4 @@ entries:
     urls:
     - https://boobielicious.github.io/boobielicious/boobielicious-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-28T21:59:23.580928947Z"
+generated: "2022-12-30T13:49:37.101405421Z"
