@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/boobielicious/boobielicious/compare/1.3.0...1.3.1) (2022-12-31)
+
+
+### Bug Fixes
+
+* **helm:** removed sharp path ([8423cc5](https://github.com/boobielicious/boobielicious/commit/8423cc5af7b2dcd2b4cd9fe13209cf1874908464))
+
 # [1.3.0](https://github.com/boobielicious/boobielicious/compare/1.2.0...1.3.0) (2022-12-31)
 
 
