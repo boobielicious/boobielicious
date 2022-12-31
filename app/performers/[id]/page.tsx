@@ -12,7 +12,7 @@ interface Props {
   }
 }
 
-export const revalidate = 60 // revalidate every minute
+export const revalidate = 10 // revalidate every 10 seconds
 
 const Page = async ({ params: { id } }: Props): Promise<JSX.Element> => {
   const performer = await getPerformer(id)

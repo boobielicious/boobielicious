@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getAllPerformers } from '../lib/stash'
 import PerformerCard from './components/PerformerCard'
 
-export const revalidate = 60 // revalidate every minute
+export const revalidate = 10 // revalidate every 10 seconds
 
 const HomePage = async (): Promise<JSX.Element> => {
   const performers = await getAllPerformers()
