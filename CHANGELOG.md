@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/boobielicious/boobielicious/compare/1.2.0...1.3.0) (2022-12-31)
+
+
+### Bug Fixes
+
+* fixed border in popup on performer page ([c9b5b0e](https://github.com/boobielicious/boobielicious/commit/c9b5b0ed13f13aef5f124e75cf860c10a9130595))
+* fixed image optimization issues with sharp ([a0b844a](https://github.com/boobielicious/boobielicious/commit/a0b844ada4a7a457cb3ee2eb6e3caede887f198f))
+* **helm:** added env sharp path for image optimization ([d13b33d](https://github.com/boobielicious/boobielicious/commit/d13b33d04ee45522b19b90e1ed623e89715f2537))
+* reverted outline in popup ([d7fa81b](https://github.com/boobielicious/boobielicious/commit/d7fa81bd128bf86fd072fd470689ed51df64a893))
+
+
+### Features
+
+* decreased revalidation time ([ec6c09d](https://github.com/boobielicious/boobielicious/commit/ec6c09d34f7661243f16f27a34ec7c9c07b741b6))
+
 # [1.2.0](https://github.com/boobielicious/boobielicious/compare/1.1.0...1.2.0) (2022-12-30)
 
 
