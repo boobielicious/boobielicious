@@ -8,6 +8,10 @@ image:
 
 # -- Environment variables.
 env:
+  # -- NZBHydra2 API endpoint
+  NZBHYDRA_ENDPOINT: https://nzbhydra2
+  # -- NZBHydra2 API key
+  NZBHYDRA_API_KEY: ""
   # -- Stash GraphQL API endpoint
   STASH_GRAPHQL_API: https://stash/graphql
   # -- Stash image host protocol

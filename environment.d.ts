@@ -7,6 +7,8 @@ declare global {
     export interface ProcessEnv {
       NODE_ENV: 'development' | 'production'
       PORT?: string
+      NZBHYDRA_ENDPOINT: string
+      NZBHYDRA_API_KEY: string
       STASH_GRAPHQL_API: string
       TWITTER_BEARER_TOKEN: string
     }

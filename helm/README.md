@@ -1,5 +1,5 @@
 # Boobielicious&reg;
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
 
 Boobielicious® is a tasty tool for boob enthusiasts
 
@@ -22,7 +22,9 @@ The following table lists the most commonly configured parameters of the Boobiel
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{"STASH_GRAPHQL_API":"https://stash/graphql","STASH_IMAGE_REMOTE_HOSTNAME":"stash","STASH_IMAGE_REMOTE_PORT":"9999","STASH_IMAGE_REMOTE_PROTOCOL":"https","TWITTER_BEARER_TOKEN":""}` | Environment variables. |
+| env | object | `{"NZBHYDRA_API_KEY":"","NZBHYDRA_ENDPOINT":"https://nzbhydra2","STASH_GRAPHQL_API":"https://stash/graphql","STASH_IMAGE_REMOTE_HOSTNAME":"stash","STASH_IMAGE_REMOTE_PORT":"9999","STASH_IMAGE_REMOTE_PROTOCOL":"https","TWITTER_BEARER_TOKEN":""}` | Environment variables. |
+| env.NZBHYDRA_API_KEY | string | `""` | NZBHydra2 API key |
+| env.NZBHYDRA_ENDPOINT | string | `"https://nzbhydra2"` | NZBHydra2 API endpoint |
 | env.STASH_GRAPHQL_API | string | `"https://stash/graphql"` | Stash GraphQL API endpoint |
 | env.STASH_IMAGE_REMOTE_HOSTNAME | string | `"stash"` | Stash image hostname |
 | env.STASH_IMAGE_REMOTE_PORT | string | `"9999"` | Stash image host port |
@@ -30,7 +32,7 @@ The following table lists the most commonly configured parameters of the Boobiel
 | env.TWITTER_BEARER_TOKEN | string | `""` | Twitter Access Token |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/boobielicious/boobielicious"` | image repository |
-| image.tag | string | `"1.0.0"` | image tag |
+| image.tag | string | `"1.2.0"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |
 | ingress.main.hosts[0].host | string | `"chart-example.local"` | Host address. Helm template can be passed. |

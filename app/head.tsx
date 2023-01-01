@@ -1,7 +1,7 @@
 const Head = (): JSX.Element => {
   return (
     <>
-      <title>Boobielicious&reg;</title>
+      <title>Home of the melon queens | Boobielicious&reg;</title>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="msapplication-TileColor" content="#000000" />
