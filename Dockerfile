@@ -61,7 +61,7 @@ COPY --from=builder /app/prisma ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder --chown=nextjs:nodejs /app/entrypoint.sh ./
+COPY --from=builder --chown=nextjs:nodejs /app/start.sh ./
 
 USER nextjs
 
