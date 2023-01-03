@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/boobielicious/boobielicious/compare/1.4.5...1.5.0) (2023-01-03)
+
+
+### Features
+
+* added caching for data fetching ([fa2898c](https://github.com/boobielicious/boobielicious/commit/fa2898ce6dea07d4413c0690e0571c2395c9eb0c))
+* added env variable for nzbget download category ([4617c45](https://github.com/boobielicious/boobielicious/commit/4617c45008b7519c7cc944c8b02ce117a7747cbe))
+* added newznab download functionality ([deddc37](https://github.com/boobielicious/boobielicious/commit/deddc37f1a6df5aef29b6564829e225d18ec5194))
+
 ## [1.4.5](https://github.com/boobielicious/boobielicious/compare/1.4.4...1.4.5) (2023-01-03)
 
 
