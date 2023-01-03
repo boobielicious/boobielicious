@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/boobielicious/boobielicious/compare/1.4.3...1.4.4) (2023-01-03)
+
+
+### Bug Fixes
+
+* fixed prisma.schema in dockerfile ([de0f4a1](https://github.com/boobielicious/boobielicious/commit/de0f4a1c52e80ea333b0b43aa969f370c25b9afd))
+
 ## [1.4.3](https://github.com/boobielicious/boobielicious/compare/1.4.2...1.4.3) (2023-01-03)
 
 
