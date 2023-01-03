@@ -8,6 +8,8 @@ image:
 
 # -- Environment variables.
 env:
+  # -- NZBGet download category
+  NZBGET_CATEGORY: stash
   # -- NZBGet JSON-RPC URL
   NZBGET_JSONRPC_API: http://nzbget:6789/jsonrpc
   # -- NZBGet user

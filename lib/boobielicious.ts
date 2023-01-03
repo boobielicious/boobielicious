@@ -136,7 +136,7 @@ export const downloadNewznab = async (url: string): Promise<NewznabItem | undefi
     return newznabItem != null ? newznabItem : undefined
   }
 
-  await nzbget.append({ addPaused: true, nzbContent: url, priority: -100, category: 'stash' })
+  await nzbget.append({ addPaused: true, nzbContent: url, priority: -100, category: process.env.NZBGET_CATEGORY })
 
   const nzbgetItem = await findNzbGetItem(url)
 
