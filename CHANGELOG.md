@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/boobielicious/boobielicious/compare/1.4.1...1.4.2) (2023-01-03)
+
+
+### Bug Fixes
+
+* fixed permission in entrypoint.sh ([95417f5](https://github.com/boobielicious/boobielicious/commit/95417f586ff9c2e77ac35e387036a0a748f71185))
+
 ## [1.4.1](https://github.com/boobielicious/boobielicious/compare/1.4.0...1.4.1) (2023-01-03)
 
 
