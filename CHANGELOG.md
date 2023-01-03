@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/boobielicious/boobielicious/compare/1.3.1...1.4.0) (2023-01-03)
+
+
+### Features
+
+* added basic nzbhydra2 support ([774b812](https://github.com/boobielicious/boobielicious/commit/774b8128ada5623f2eaf07d4b361e05895e9d65c))
+* added nzbhydra2 and prisma ([23b09ec](https://github.com/boobielicious/boobielicious/commit/23b09ec9c72456988587ecb34df7861856dd2bf2))
+
 ## [1.3.1](https://github.com/boobielicious/boobielicious/compare/1.3.0...1.3.1) (2022-12-31)
 
 
