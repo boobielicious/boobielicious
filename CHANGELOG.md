@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/boobielicious/boobielicious/compare/1.4.0...1.4.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* fixed entrypoint in dockerfile ([9579eeb](https://github.com/boobielicious/boobielicious/commit/9579eeb3fd6cd0e56c7e5612897c5ba1d3c3cbd2))
+
 # [1.4.0](https://github.com/boobielicious/boobielicious/compare/1.3.1...1.4.0) (2023-01-03)
 
 
