@@ -2,6 +2,26 @@ apiVersion: v1
 entries:
   boobielicious:
   - apiVersion: v2
+    appVersion: 1.5.0
+    created: "2023-01-03T21:40:43.631487073Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.2.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.6
+    description: Boobielicious® is a tasty tool for boob enthusiasts
+    digest: 40314d1aea72cc9fd2c03ca198a8b1ee0a252ca098f07ef3bbdaf3e16defef9f
+    home: https://boobielicious.github.io/boobielicious/
+    name: boobielicious
+    sources:
+    - https://github.com/boobielicious/boobielicious
+    urls:
+    - https://boobielicious.github.io/boobielicious/boobielicious-1.5.0.tgz
+    version: 1.5.0
+  - apiVersion: v2
     appVersion: 1.4.5
     created: "2023-01-03T17:31:13.477963625Z"
     dependencies:
@@ -201,4 +221,4 @@ entries:
     urls:
     - https://boobielicious.github.io/boobielicious/boobielicious-1.0.0.tgz
     version: 1.0.0
-generated: "2023-01-03T17:31:13.469902092Z"
+generated: "2023-01-03T21:40:43.622939995Z"
