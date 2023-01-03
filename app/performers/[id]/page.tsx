@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IoDownload, IoHeart, IoHeartOutline, IoLogoInstagram, IoLogoTwitter } from 'react-icons/io5'
 
-import { getPerformer } from '../../../lib/stash'
+import { getPerformer } from '../../../lib/boobielicious'
 import Popup from '../../components/Popup'
 
 export interface PageProps {
@@ -34,7 +34,7 @@ const Page = async ({ params: { id } }: PageProps): Promise<JSX.Element> => {
             <button className="mr-2 hover:text-red-400 focus:outline-none">
               {isFavorite != null ? (
                 isFavorite ? (
-                  <IoHeart className="h-full w-6" />
+                  <IoHeart className="h-full w-6 text-red-400" />
                 ) : (
                   <IoHeartOutline className="h-full w-6" />
                 )

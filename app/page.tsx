@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
-import { getAllPerformers } from '../lib/stash'
+import { getPerformers } from '../lib/boobielicious'
 import PerformerCard from './components/PerformerCard'
 
 export const revalidate = 10 // revalidate every 10 seconds
 
 const HomePage = async (): Promise<JSX.Element> => {
-  const performers = await getAllPerformers()
+  const performers = await getPerformers()
   return (
     <main className="mx-4 flex min-h-content items-center justify-center">
       <ul className="grid w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
