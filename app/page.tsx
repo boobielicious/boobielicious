@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { getPerformers } from '../lib/boobielicious'
 import PerformerCard from './components/PerformerCard'
+import { getPerformers } from './utils'
 
 export const revalidate = 10 // revalidate every 10 seconds
 

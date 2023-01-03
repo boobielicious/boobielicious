@@ -8,19 +8,23 @@ interface NZBGetParams {
   }
 }
 
-interface HistoryItem {
+export interface Item {
   NZBID: number
-  Kind: 'NZB' | 'URL' | 'DUP'
-  Name: string
+  NZBFilename: string
+  NZBName: string
   URL: string
+  FileSizeMB: number
+  Kind: string
   Status: string
 }
 
-interface GroupItem {
-  NZBID: number
-  NZBName: string
+export interface HistoryItem extends Item {
+  Kind: 'NZB' | 'URL' | 'DUP'
+  Name: string
+}
+
+export interface GroupItem extends Item {
   Kind: 'NZB' | 'URL'
-  URL: string
   Status:
     | 'QUEUED'
     | 'PAUSED'
@@ -44,15 +48,15 @@ interface Response<T> {
 }
 
 interface AppendParams {
-  nzbFilename: string
+  nzbFilename?: string
   nzbContent: string
   category?: string
-  priority?: boolean
+  priority?: number
   addToTop?: boolean
   addPaused?: boolean
   dupeKey?: string
   dupeScore?: number
-  dupeMode?: string
+  dupeMode?: 'SCORE' | 'ALL' | 'FORCE'
   ppParameters?: any[]
 }
 
@@ -98,33 +102,33 @@ export class NZBGet {
   }
 
   public async append({
-    addPaused,
-    addToTop,
-    category,
-    dupeKey,
-    dupeMode,
-    dupeScore,
+    addPaused = false,
+    addToTop = false,
+    category = '',
+    dupeKey = '',
+    dupeMode = 'SCORE',
+    dupeScore = 0,
     nzbContent,
-    nzbFilename,
-    priority,
-    ppParameters
+    nzbFilename = '',
+    priority = 0,
+    ppParameters = []
   }: AppendParams): Promise<number> {
     const { result } = await this.request<number>('append', [
       nzbFilename,
       nzbContent,
-      category ?? '',
-      priority ?? 0,
-      addToTop ?? false,
-      addPaused ?? false,
-      dupeKey ?? '',
-      dupeScore ?? 0,
-      dupeMode ?? '',
-      ppParameters ?? []
+      category,
+      priority,
+      addToTop,
+      addPaused,
+      dupeKey,
+      dupeScore,
+      dupeMode,
+      ppParameters
     ])
     return result
   }
 
-  public async getAllItems(): Promise<any[]> {
+  public async getAllItems(): Promise<Item[]> {
     const [groupItems, historyItems] = await Promise.all([this.listGroupItems(), this.historyItems()])
     return [...groupItems, ...historyItems]
   }

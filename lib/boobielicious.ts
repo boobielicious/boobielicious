@@ -1,10 +1,10 @@
-import 'server-only'
+// import 'server-only'
 
 import { NewznabItem, NewznabItemStatus } from '@prisma/client'
 import { GraphQLClient } from 'graphql-request'
 
 import { getSdk, StashPerformerFieldsFragment } from '../generated/stash'
-import { NZBGet } from './nzbget'
+import { Item, NZBGet } from './nzbget'
 import { NZBHydra } from './nzbhydra'
 import { convertCupSize, Performer } from './performer'
 import { prisma } from './prisma'
@@ -81,6 +81,7 @@ export const getPerformer = async (id: string): Promise<Performer | undefined> =
 
 export const searchNewznab = async (q: string, stashId: string): Promise<NewznabItem[]> => {
   const [nzbhydraItems, nzbgetItems] = await Promise.all([nzbhydra.search(q), nzbget.getAllItems()])
+
   await promiseSerial(
     nzbhydraItems.map(
       ({ guid: id, url, ...item }) =>
@@ -111,6 +112,59 @@ export const searchNewznab = async (q: string, stashId: string): Promise<Newznab
   })
 
   return items
+}
+
+export const downloadNewznab = async (url: string): Promise<NewznabItem | undefined> => {
+  const findNzbGetItem = async (url: string): Promise<Item | undefined> => {
+    const nzbgetItems = (await nzbget.getAllItems()).sort((a, b) => a.NZBID - b.NZBID)
+
+    const item = nzbgetItems.find(({ URL }) => URL === url)
+
+    if (item == null) return item
+    if (item.Status === 'FETCHING') return await findNzbGetItem(url)
+
+    const duplicate = nzbgetItems.find(
+      ({ NZBFilename, FileSizeMB }) => NZBFilename === item.NZBFilename && FileSizeMB === item.FileSizeMB
+    )
+    return duplicate ?? item
+  }
+
+  const existingItem = await findNzbGetItem(url)
+
+  if (existingItem != null) {
+    const newznabItem = await prisma.newznabItem.findUnique({ where: { url: existingItem.URL } })
+    return newznabItem != null ? newznabItem : undefined
+  }
+
+  await nzbget.append({ addPaused: true, nzbContent: url, priority: -100, category: 'stash' })
+
+  const nzbgetItem = await findNzbGetItem(url)
+
+  if (nzbgetItem == null) {
+    return undefined
+  }
+
+  const newznabItem = await prisma.newznabItem.findUnique({ where: { url: nzbgetItem.URL } })
+  if (newznabItem != null) {
+    const updatedItem =
+      newznabItem.url !== nzbgetItem.NZBName && nzbgetItem.FileSizeMB > 0
+        ? await prisma.newznabItem.update({
+            where: { url: newznabItem.url },
+            data: {
+              title: nzbgetItem.NZBName,
+              size: nzbgetItem.FileSizeMB,
+              status: getNewnabItemStatus(nzbgetItem.Status)
+            }
+          })
+        : await prisma.newznabItem.update({
+            where: { url: newznabItem.url },
+            data: { status: getNewnabItemStatus(nzbgetItem.Status) }
+          })
+    if (updatedItem != null) {
+      return updatedItem
+    }
+  }
+  return undefined
 }
 
 export const getNewnabItemStatus = (status?: string): NewznabItemStatus => {

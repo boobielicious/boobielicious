@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IoDownload, IoHeart, IoHeartOutline, IoLogoInstagram, IoLogoTwitter } from 'react-icons/io5'
 
-import { getPerformer } from '../../../lib/boobielicious'
 import Popup from '../../components/Popup'
+import { getPerformer } from '../../utils'
 
 export interface PageProps {
   params: {
