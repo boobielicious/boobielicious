@@ -1,3 +1,11 @@
+## [1.4.5](https://github.com/boobielicious/boobielicious/compare/1.4.4...1.4.5) (2023-01-03)
+
+
+### Bug Fixes
+
+* fixed bug in dockerfile ([93425cd](https://github.com/boobielicious/boobielicious/commit/93425cd3bb928eed3b3ca153db0802c98cdb732c))
+* fixed start script ([6f21618](https://github.com/boobielicious/boobielicious/commit/6f21618190826a89cc4cfe3dcac6c2132660fa4e))
+
 ## [1.4.4](https://github.com/boobielicious/boobielicious/compare/1.4.3...1.4.4) (2023-01-03)
 
 
