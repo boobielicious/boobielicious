@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/boobielicious/boobielicious/compare/1.4.2...1.4.3) (2023-01-03)
+
+
+### Bug Fixes
+
+* fixed permissions for entrypoint ([f4a8bff](https://github.com/boobielicious/boobielicious/commit/f4a8bffa150fbabf7f1294661454f2198732abfd))
+
 ## [1.4.2](https://github.com/boobielicious/boobielicious/compare/1.4.1...1.4.2) (2023-01-03)
 
 
