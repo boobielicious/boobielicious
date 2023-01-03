@@ -8,6 +8,21 @@
 global:
   nameOverride: "{{ .Release.Name }}"
 {{ end }}
+
+initContainers:
+  wait-for-db:
+    name: wait-for-db
+    image: ghcr.io/patrickdappollonio/wait-for:latest
+    command:
+      - /wait-for
+    args:
+      - --host="{{ .Release.Name }}-postgresql:5432"
+      - --timeout=20s
+      - --verbose
+
+env:
+  DATABASE_URL: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.auth.database }}
+
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "boobielicious.hardcodedValues" . | fromYaml) -}}
 
