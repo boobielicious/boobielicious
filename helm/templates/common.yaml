@@ -24,6 +24,7 @@ initContainers:
 env:
   DATABASE_URL: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.auth.database }}
   NZBGET_DOWNLOAD_PATH: /downloads
+  PERFORMERS_PATH: /performers
   REDIS_HOST: "{{ .Release.Name }}-redis-master"
   REDIS_PORT: "6379"
   REDIS_PASSWORD: {{ .Values.redis.auth.password }}

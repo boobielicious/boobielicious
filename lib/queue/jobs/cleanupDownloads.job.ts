@@ -33,12 +33,11 @@ export class CleanupDownloads extends BaseJob implements BackgroundJob {
     }
 
     itemsWithStashPerformer.forEach(({ queryName, title, performerName }) => {
-      const dropzoneFolder = '_dropzone'
       const performerFolder = path.join(process.env.NZBGET_DOWNLOAD_PATH, performerName ?? queryName)
       const oldPath = path.join(process.env.NZBGET_DOWNLOAD_PATH, title)
       const newPath = path.join(performerFolder, title)
 
-      fs.mkdirSync(path.join(performerFolder, dropzoneFolder), { recursive: true })
+      fs.mkdirSync(path.join(performerFolder, process.env.PERFORMER_DROPZONE_FOLDER), { recursive: true })
       logger.info(`Moving ${oldPath} to ${newPath}...`)
       fs.renameSync(oldPath, newPath)
     })

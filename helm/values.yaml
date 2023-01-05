@@ -20,6 +20,8 @@ env:
   NZBHYDRA_ENDPOINT: http://nzbhydra2:5076
   # -- NZBHydra2 API key
   NZBHYDRA_API_KEY: ""
+  # -- Dropzone folder for performers
+  PERFORMER_DROPZONE_FOLDER: _dropzone
   # -- Stash GraphQL API endpoint
   STASH_GRAPHQL_API: http://stash:9999/graphql
   # -- Stash image host protocol
@@ -71,6 +73,12 @@ persistence:
     subPath:
       - mountPath: /downloads
         path: completed/stash
+  performers:
+    enabled: false
+    existingClaim: nfs-stash
+    subPath:
+      - mountPath: /performers
+        path: performers
 
 cronjobs:
   cleanupDownloads:

@@ -14,6 +14,8 @@ declare global {
       NZBGET_PASSWORD: string
       NZBHYDRA_ENDPOINT: string
       NZBHYDRA_API_KEY: string
+      PERFORMER_DROPZONE_FOLDER: string
+      PERFORMERS_PATH: string
       REDIS_HOST: string
       REDIS_PORT: string
       REDIS_PASSWORD: string

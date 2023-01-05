@@ -1,0 +1,38 @@
+{{- include "common.values.setup" . -}}
+{{- if .Values.cronjobs.cleanupSortedVideos.enabled -}}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "common.names.fullname" . }}-cleanup-sorted-videos
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cronjobs.cleanupSortedVideos.schedule | quote }}
+  concurrencyPolicy: Forbid
+  {{- with .Values.cronjobs.cleanupSortedVideos.successfulJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjobs.cleanupSortedVideos.failedJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ . }}
+  {{- end}}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: {{ include "common.names.fullname" . }}-cleanup-sorted-videos
+          labels:
+            {{- include "common.labels.selectorLabels" . | nindent 12 }}
+          {{- with .Values.cronjobs.cleanupSortedVideos.podAnnotations }}
+          annotations: {{- toYaml . | nindent 12 }}
+          {{- end }}
+        spec:
+          containers:
+            - name: cleanup-sorted-videos
+              image: curlimages/curl:7.85.0
+              command:
+                - /bin/sh
+                - -ec
+                - 'curl -s -X POST "http://{{ include "common.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/cleanupSortedVideos"'
+          restartPolicy: {{ .Values.cronjobs.cleanupSortedVideos.restartPolicy }}
+{{- end -}}
