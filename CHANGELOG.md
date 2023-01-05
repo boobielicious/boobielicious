@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/boobielicious/boobielicious/compare/1.7.1...1.7.2) (2023-01-05)
+
+
+### Bug Fixes
+
+* **helm:** fixed common lib migration issues ([0ce797a](https://github.com/boobielicious/boobielicious/commit/0ce797ad8e1ac7aa4c396c399851706aa0a50747))
+
 ## [1.7.1](https://github.com/boobielicious/boobielicious/compare/1.7.0...1.7.1) (2023-01-05)
 
 
