@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/boobielicious/boobielicious/compare/1.5.0...1.6.0) (2023-01-05)
+
+
+### Features
+
+* added redis queue for background tasks ([3a53d44](https://github.com/boobielicious/boobielicious/commit/3a53d447ac18b90e3aa3ea17125e78d14256e2b6))
+
 # [1.5.0](https://github.com/boobielicious/boobielicious/compare/1.4.5...1.5.0) (2023-01-03)
 
 
