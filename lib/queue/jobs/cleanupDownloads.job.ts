@@ -41,7 +41,6 @@ export class CleanupDownloads extends BaseJob implements BackgroundJob {
       fs.mkdirSync(path.join(performerFolder, dropzoneFolder), { recursive: true })
       logger.info(`Moving ${oldPath} to ${newPath}...`)
       fs.renameSync(oldPath, newPath)
-      logger.info('done!')
     })
   }
 
