@@ -98,3 +98,5 @@ redis:
     persistence:
       enabled: false
       #storageClass: nfs-data
+  replica:
+    replicaCount: 0
