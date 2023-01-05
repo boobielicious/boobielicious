@@ -133,3 +133,11 @@ export class NZBGet {
     return [...groupItems, ...historyItems]
   }
 }
+
+export const nzbget = new NZBGet({
+  endpoint: process.env.NZBGET_JSONRPC_API,
+  credentials: {
+    username: process.env.NZBGET_USERNAME,
+    password: process.env.NZBGET_PASSWORD
+  }
+})

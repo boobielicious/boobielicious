@@ -62,6 +62,16 @@ ingress:
     #    hosts:
     #      - chart-example.local
 
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  downloads:
+    enabled: false
+    existingClaim: nfs-downloads
+    subPath:
+      - mountPath: /downloads
+        path: completed/stash
+
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
 # @default -- See values.yaml
@@ -73,6 +83,18 @@ postgresql:
     password: boobielicious
     database: boobielicious
   primary:
+    persistence:
+      enabled: false
+      #storageClass: nfs-data
+
+# -- Enable and configure redis database subchart under this key.
+#    For more options see [redis chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/redis)
+# @default -- See values.yaml
+redis:
+  enabled: true
+  auth:
+    password: boobielicious
+  master:
     persistence:
       enabled: false
       #storageClass: nfs-data

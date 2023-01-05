@@ -66,7 +66,7 @@ interface SearchResponse {
 /**
  * NZBHydra API
  */
-export class NZBHydra {
+export default class NZBHydra {
   private readonly apiKey: string
   private readonly endpoint: string
 
@@ -126,3 +126,5 @@ export class NZBHydra {
     return await this.search(q, category, offset + newItems.length, allItems)
   }
 }
+
+export const nzbhydra = new NZBHydra(process.env.NZBHYDRA_API_KEY, process.env.NZBHYDRA_ENDPOINT)

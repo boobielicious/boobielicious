@@ -1,26 +1,15 @@
 // import 'server-only'
 
 import { NewznabItem, NewznabItemStatus } from '@prisma/client'
-import { GraphQLClient } from 'graphql-request'
 
-import { getSdk, StashPerformerFieldsFragment } from '../generated/stash'
-import { Item, NZBGet } from './nzbget'
-import { NZBHydra } from './nzbhydra'
+import { StashPerformerFieldsFragment } from '../generated/stash'
+import { Item, nzbget } from './nzbget'
+import { nzbhydra } from './nzbhydra'
 import { convertCupSize, Performer } from './performer'
 import { prisma } from './prisma'
-import Twitter from './twitter'
+import { stash } from './stash'
+import { client as twitterClient } from './twitter'
 import { promiseSerial } from './utils'
-
-const stash = getSdk(new GraphQLClient(process.env.STASH_GRAPHQL_API))
-const nzbget = new NZBGet({
-  endpoint: process.env.NZBGET_JSONRPC_API,
-  credentials: {
-    username: process.env.NZBGET_USERNAME,
-    password: process.env.NZBGET_PASSWORD
-  }
-})
-const twitterClient = new Twitter(process.env.TWITTER_BEARER_TOKEN)
-const nzbhydra = new NZBHydra(process.env.NZBHYDRA_API_KEY, process.env.NZBHYDRA_ENDPOINT)
 
 const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Performer => {
   const { name, aliases, photo, hasFakeBoobs, isFavorite, measurements, instagram, twitter, id } = stashPerformer

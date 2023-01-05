@@ -46,3 +46,5 @@ export class Twitter {
 }
 
 export default Twitter
+
+export const client = new Twitter(process.env.TWITTER_BEARER_TOKEN)
