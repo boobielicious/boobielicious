@@ -17,7 +17,7 @@ initContainers:
       - /wait-for
     args:
       - --host="{{ .Release.Name }}-postgresql:5432"
-      - --host="{{ .Release.Name }}-redis:6379"
+      - --host="{{ .Release.Name }}-redis-master:6379"
       - --timeout=60s
       - --verbose
 
