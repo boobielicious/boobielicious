@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/boobielicious/boobielicious/compare/1.7.2...1.7.3) (2023-01-05)
+
+
+### Bug Fixes
+
+* added cleanup sorted videos job to job provider ([2646373](https://github.com/boobielicious/boobielicious/commit/2646373ea8461e0b5d67b5b0494aa9dcffa8b0c4))
+
 ## [1.7.2](https://github.com/boobielicious/boobielicious/compare/1.7.1...1.7.2) (2023-01-05)
 
 
