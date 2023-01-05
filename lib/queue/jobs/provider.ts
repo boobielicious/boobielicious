@@ -2,10 +2,12 @@ import { plainToInstance } from 'class-transformer'
 
 import { BackgroundJob } from '../job'
 import { CleanupDownloads } from './cleanupDownloads.job'
+import { CleanupSortedVideos } from './cleanupSortedVideos.job'
 import { UpdateItemStatus } from './updateItemStatus.job'
 
 export const JobDictionary = new Map([
   [CleanupDownloads.name, CleanupDownloads],
+  [CleanupSortedVideos.name, CleanupSortedVideos],
   [UpdateItemStatus.name, UpdateItemStatus]
 ])
 
