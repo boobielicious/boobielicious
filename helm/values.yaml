@@ -72,6 +72,46 @@ persistence:
       - mountPath: /downloads
         path: completed/stash
 
+cronjobs:
+  cleanupDownloads:
+    # -- Enables cleaning up downloads
+    enabled: false
+    # -- Schedule time in UTC
+    schedule: "* * * * *"
+    # -- How many pods to keep around for successful jobs
+    successfulJobsHistoryLimit: 1
+    # -- How many pods to keep around for failed jobs
+    failedJobsHistoryLimit: 1
+    # -- How to treat failed jobs
+    restartPolicy: Never
+    podAnnotations: {}
+
+  cleanupSortedVideos:
+    # -- Enables cleaning up sorted videos
+    enabled: false
+    # -- Schedule time in UTC
+    schedule: "0 5 * * *"
+    # -- How many pods to keep around for successful jobs
+    successfulJobsHistoryLimit: 1
+    # -- How many pods to keep around for failed jobs
+    failedJobsHistoryLimit: 1
+    # -- How to treat failed jobs
+    restartPolicy: Never
+    podAnnotations: {}
+
+  updateStatus:
+    # -- Enables updating status of newznab items
+    enabled: false
+    # -- Schedule time in UTC
+    schedule: "* * * * *"
+    # -- How many pods to keep around for successful jobs
+    successfulJobsHistoryLimit: 1
+    # -- How many pods to keep around for failed jobs
+    failedJobsHistoryLimit: 1
+    # -- How to treat failed jobs
+    restartPolicy: Never
+    podAnnotations: {}
+
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
 # @default -- See values.yaml

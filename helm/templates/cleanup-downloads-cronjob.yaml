@@ -1,0 +1,38 @@
+{{- include "common.values.setup" . -}}
+{{- if .Values.cronjobs.cleanupDownloads.enabled -}}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "common.names.fullname" . }}-cleanup-downloads
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cronjobs.cleanupDownloads.schedule | quote }}
+  concurrencyPolicy: Forbid
+  {{- with .Values.cronjobs.cleanupDownloads.successfulJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjobs.cleanupDownloads.failedJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ . }}
+  {{- end}}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: {{ include "common.names.fullname" . }}-cleanup-downloads
+          labels:
+            {{- include "common.labels.selectorLabels" . | nindent 12 }}
+          {{- with .Values.cronjobs.cleanupDownloads.podAnnotations }}
+          annotations: {{- toYaml . | nindent 12 }}
+          {{- end }}
+        spec:
+          containers:
+            - name: cleanup-downloads
+              image: curlimages/curl:7.85.0
+              command:
+                - /bin/sh
+                - -ec
+                - 'curl -s -X POST "http://{{ include "common.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/cleanupDownloads"'
+          restartPolicy: {{ .Values.cronjobs.cleanupDownloads.restartPolicy }}
+{{- end -}}

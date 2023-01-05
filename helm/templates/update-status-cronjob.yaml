@@ -1,0 +1,38 @@
+{{- include "common.values.setup" . -}}
+{{- if .Values.cronjobs.updateStatus.enabled -}}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "common.names.fullname" . }}-update-status
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cronjobs.updateStatus.schedule | quote }}
+  concurrencyPolicy: Forbid
+  {{- with .Values.cronjobs.updateStatus.successfulJobsHistoryLimit }}
+  successfulJobsHistoryLimit: {{ . }}
+  {{- end }}
+  {{- with .Values.cronjobs.updateStatus.failedJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ . }}
+  {{- end}}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: {{ include "common.names.fullname" . }}-update-status
+          labels:
+            {{- include "common.labels.selectorLabels" . | nindent 12 }}
+          {{- with .Values.cronjobs.updateStatus.podAnnotations }}
+          annotations: {{- toYaml . | nindent 12 }}
+          {{- end }}
+        spec:
+          containers:
+            - name: update-status
+              image: curlimages/curl:7.85.0
+              command:
+                - /bin/sh
+                - -ec
+                - 'curl -s -X PUT "http://{{ include "common.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/updateItemStatus"'
+          restartPolicy: {{ .Values.cronjobs.updateStatus.restartPolicy }}
+{{- end -}}
