@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/boobielicious/boobielicious/compare/1.6.1...1.6.2) (2023-01-05)
+
+
+### Bug Fixes
+
+* **helm:** fixed host in wait-for-db ([3392d05](https://github.com/boobielicious/boobielicious/commit/3392d055c95587a9ff89cee8b31b92eb621b2dda))
+
 ## [1.6.1](https://github.com/boobielicious/boobielicious/compare/1.6.0...1.6.1) (2023-01-05)
 
 
