@@ -4,9 +4,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "common.names.fullname" . }}-update-status
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
+  name: {{ include "bjw-s.common.lib.chart.names.fullname" . }}-update-status
+  {{- with include "bjw-s.common.lib.controller.metadata.labels" . }}
+  labels: {{- . | nindent 4 }}
+  {{- end }}
 spec:
   schedule: {{ .Values.cronjobs.updateStatus.schedule | quote }}
   concurrencyPolicy: Forbid
@@ -20,9 +21,11 @@ spec:
     spec:
       template:
         metadata:
-          name: {{ include "common.names.fullname" . }}-update-status
           labels:
-            {{- include "common.labels.selectorLabels" . | nindent 12 }}
+            {{- include "bjw-s.common.lib.metadata.selectorLabels" . | nindent 12 }}
+            {{- with .Values.podLabels }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           {{- with .Values.cronjobs.updateStatus.podAnnotations }}
           annotations: {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -33,6 +36,6 @@ spec:
               command:
                 - /bin/sh
                 - -ec
-                - 'curl -s -X PUT "http://{{ include "common.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/updateItemStatus"'
+                - 'curl -s -X PUT "http://{{ include "bjw-s.common.lib.chart.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/updateItemStatus"'
           restartPolicy: {{ .Values.cronjobs.updateStatus.restartPolicy }}
 {{- end -}}

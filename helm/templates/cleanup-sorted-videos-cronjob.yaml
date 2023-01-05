@@ -4,9 +4,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "common.names.fullname" . }}-cleanup-sorted-videos
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
+  name: {{ include "bjw-s.common.lib.chart.names.fullname" . }}-cleanup-sorted-videos
+  {{- with include "bjw-s.common.lib.controller.metadata.labels" . }}
+  labels: {{- . | nindent 4 }}
+  {{- end }}
 spec:
   schedule: {{ .Values.cronjobs.cleanupSortedVideos.schedule | quote }}
   concurrencyPolicy: Forbid
@@ -20,9 +21,11 @@ spec:
     spec:
       template:
         metadata:
-          name: {{ include "common.names.fullname" . }}-cleanup-sorted-videos
           labels:
-            {{- include "common.labels.selectorLabels" . | nindent 12 }}
+            {{- include "bjw-s.common.lib.metadata.selectorLabels" . | nindent 12 }}
+            {{- with .Values.podLabels }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           {{- with .Values.cronjobs.cleanupSortedVideos.podAnnotations }}
           annotations: {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -33,6 +36,6 @@ spec:
               command:
                 - /bin/sh
                 - -ec
-                - 'curl -s -X POST "http://{{ include "common.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/cleanupSortedVideos"'
+                - 'curl -s -X POST "http://{{ include "bjw-s.common.lib.chart.names.fullname" . }}:{{ .Values.service.main.ports.http.port }}/api/hooks/cleanupSortedVideos"'
           restartPolicy: {{ .Values.cronjobs.cleanupSortedVideos.restartPolicy }}
 {{- end -}}
