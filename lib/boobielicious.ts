@@ -24,8 +24,11 @@ const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Pe
         : [],
     photo: photo != null ? (photo.length > 0 ? photo : undefined) : undefined,
     images: photo != null ? [photo] : [],
-    bandSize: measurements != null ? parseInt(measurements.split(/[a-zA-Z]/)[0], 10) : undefined,
-    cupSize: measurements != null ? convertCupSize(measurements.split(/[\d]{2,3}/).join('')) : undefined,
+    bandSize: measurements != null && measurements !== '' ? parseInt(measurements.split(/[a-zA-Z]/)[0], 10) : undefined,
+    cupSize:
+      measurements != null && measurements !== ''
+        ? convertCupSize(measurements.split(/[\d]{2,3}/).join(''))
+        : undefined,
     hasNaturalBoobs:
       hasFakeBoobs != null ? (hasFakeBoobs === 'No' ? true : hasFakeBoobs === 'Yes' ? false : undefined) : undefined,
     twitter: twitter != null ? (twitter.length > 0 ? twitter : undefined) : undefined,
