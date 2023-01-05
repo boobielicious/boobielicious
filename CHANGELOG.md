@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/boobielicious/boobielicious/compare/1.6.0...1.6.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* **helm:** fixed redist host and replica count ([17a37a8](https://github.com/boobielicious/boobielicious/commit/17a37a81054b1098b757c36e5bf1ddc0f0f11503))
+
 # [1.6.0](https://github.com/boobielicious/boobielicious/compare/1.5.0...1.6.0) (2023-01-05)
 
 
