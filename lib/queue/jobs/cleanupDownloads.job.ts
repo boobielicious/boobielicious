@@ -14,7 +14,6 @@ export class CleanupDownloads extends BaseJob implements BackgroundJob {
   }
 
   handle = async (): Promise<void> => {
-    logger.info('Looking for completed downloads...')
     const completedItems = (
       await prisma.newznabItem.findMany({
         where: { status: { equals: NewznabItemStatus.COMPLETED } }

@@ -12,7 +12,6 @@ export class CleanupSortedVideos extends BaseJob implements BackgroundJob {
   }
 
   handle = async (): Promise<void> => {
-    logger.info('Looking for sorted videos...')
     const { allPerformers: performers } = await stash.allPerformers()
 
     const unwantedFiles = ['@eaDir', '.DS_Store']
@@ -38,6 +37,8 @@ export class CleanupSortedVideos extends BaseJob implements BackgroundJob {
               fs.moveSync(oldPath, newPath, { overwrite: true })
             })
           }
+
+          logger.info(`Processed ${files.length} items for ${name as string}`)
           return {
             name: name as string,
             sortedVideoCount: files.length

@@ -13,8 +13,6 @@ export class UpdateItemStatus extends BaseJob implements BackgroundJob {
   }
 
   handle = async (): Promise<void> => {
-    logger.info('Checking for status changes of Newznab items...')
-
     const [items, nzbgetItems] = await Promise.all([
       prisma.newznabItem.findMany({ orderBy: { updatedAt: 'asc' } }),
       nzbget.getAllItems()
