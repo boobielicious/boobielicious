@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/boobielicious/boobielicious/compare/1.6.2...1.7.0) (2023-01-05)
+
+
+### Features
+
+* added cleanup sorted videos functionality ([fb6e0d7](https://github.com/boobielicious/boobielicious/commit/fb6e0d730bba0b3a80a71a5d02bb1cf96e0a03b6))
+* **helm:** added cronjobs for download cleanup and status updates ([f542f82](https://github.com/boobielicious/boobielicious/commit/f542f821b221a34f31f4a8446964f8e923597d89))
+
 ## [1.6.2](https://github.com/boobielicious/boobielicious/compare/1.6.1...1.6.2) (2023-01-05)
 
 
