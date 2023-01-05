@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/boobielicious/boobielicious/compare/1.7.0...1.7.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* **helm:** fixed common init ([77d89ce](https://github.com/boobielicious/boobielicious/commit/77d89ce450893328e815d4e7be258b58a088739d))
+
 # [1.7.0](https://github.com/boobielicious/boobielicious/compare/1.6.2...1.7.0) (2023-01-05)
 
 
