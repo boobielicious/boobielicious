@@ -1,3 +1,13 @@
+## [1.7.4](https://github.com/boobielicious/boobielicious/compare/1.7.3...1.7.4) (2023-01-06)
+
+
+### Bug Fixes
+
+* **deps:** update prisma monorepo to v4.8.1 ([e7b80cb](https://github.com/boobielicious/boobielicious/commit/e7b80cbc31acd91583e95e2f30dc8dfb1d26e120))
+* fixed band and cup size parsing ([78ba896](https://github.com/boobielicious/boobielicious/commit/78ba896f63104b8e1065c2ff01cae243e5f1f60d))
+* fixed search params in search page ([1ebea7c](https://github.com/boobielicious/boobielicious/commit/1ebea7c6771f302f4ee132c2ee03e14fba1f5ac9))
+* fixed table margin on nzbhydra loading page ([7a863d2](https://github.com/boobielicious/boobielicious/commit/7a863d2080577c6039f93cfa81efe20254c09291))
+
 ## [1.7.3](https://github.com/boobielicious/boobielicious/compare/1.7.2...1.7.3) (2023-01-05)
 
 
