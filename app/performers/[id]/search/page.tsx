@@ -2,7 +2,7 @@ import NewznabResultRow from '../../../components/NewznabItemRow'
 import { searchNewznab } from '../../../utils'
 
 export interface PageProps {
-  searchParams: {
+  searchParams?: {
     q?: string
   }
   params: {
@@ -12,10 +12,10 @@ export interface PageProps {
 
 export const revalidate = 10 // revalidate every 10 seconds
 
-const Page = async ({ searchParams: { q }, params: { id } }: PageProps): Promise<JSX.Element> => {
-  if (q == null) return <span>Error</span>
+const Page = async ({ searchParams, params: { id } }: PageProps): Promise<JSX.Element> => {
+  if (searchParams?.q == null) return <span>Error</span>
 
-  const items = await searchNewznab(q, id)
+  const items = await searchNewznab(searchParams.q, id)
   return (
     <main className="mx-4">
       <table className="w-full table-auto">
