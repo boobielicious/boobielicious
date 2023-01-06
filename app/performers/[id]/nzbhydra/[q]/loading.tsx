@@ -4,7 +4,7 @@ const Loading = (): JSX.Element => {
   return (
     <main className="mx-4">
       <table className="w-full table-auto">
-        <thead className="sticky top-12 bg-neutral-50 text-left dark:bg-neutral-900">
+        <thead className="sticky top-14 bg-neutral-50 text-left dark:bg-neutral-900">
           <tr>
             <th>Title</th>
             <th>Size</th>
