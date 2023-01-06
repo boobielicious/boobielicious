@@ -1,17 +1,20 @@
-import NewznabResultRow from '../../../../components/NewznabItemRow'
-import { searchNewznab } from '../../../../utils'
+import NewznabResultRow from '../../../components/NewznabItemRow'
+import { searchNewznab } from '../../../utils'
 
 export interface PageProps {
+  searchParams: {
+    q?: string
+  }
   params: {
-    q: string
     id: string
   }
 }
 
 export const revalidate = 10 // revalidate every 10 seconds
 
-const Page = async ({ params: { q: encodedQ, id } }: PageProps): Promise<JSX.Element> => {
-  const q = decodeURIComponent(encodedQ)
+const Page = async ({ searchParams: { q }, params: { id } }: PageProps): Promise<JSX.Element> => {
+  if (q == null) return <span>Error</span>
+
   const items = await searchNewznab(q, id)
   return (
     <main className="mx-4">

@@ -52,7 +52,7 @@ const Page = async ({ params: { id } }: PageProps): Promise<JSX.Element> => {
             >
               <ul className="border bg-neutral-50 p-4 outline-none dark:bg-neutral-900">
                 {[name].concat(aliases).map((name, index) => (
-                  <Link key={index} href={`/performers/${id}/nzbhydra/${name}`}>
+                  <Link key={index} href={{ pathname: `/performers/${id}/search`, query: { q: name } }}>
                     <li className="font-bold text-neutral-900 hover:text-neutral-400 dark:text-neutral-50">{name}</li>
                   </Link>
                 ))}
