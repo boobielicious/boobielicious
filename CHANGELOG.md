@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/boobielicious/boobielicious/compare/1.7.4...1.8.0) (2023-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency bullmq to v3.5.3 ([22ffff4](https://github.com/boobielicious/boobielicious/commit/22ffff4ce1649e7c166deacdb9b92db210265ff4))
+* fixed measurement conversion bug (NaN) ([8c7a206](https://github.com/boobielicious/boobielicious/commit/8c7a2063faf3375c4a3ba42b4e8aff2608a0f01f))
+
+
+### Features
+
+* added group release marking in newznab results ([c6217de](https://github.com/boobielicious/boobielicious/commit/c6217de20266f1d36a9b09a0bda8fb7075ec2caf))
+
 ## [1.7.4](https://github.com/boobielicious/boobielicious/compare/1.7.3...1.7.4) (2023-01-06)
 
 
