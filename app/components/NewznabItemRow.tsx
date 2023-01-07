@@ -16,6 +16,7 @@ interface Props {
   createdAt: string
   status: NewznabItemStatus
   url: string
+  performerName: string
 }
 
 const getStatusIcon = (status: NewznabItemStatus): JSX.Element => {
@@ -39,7 +40,7 @@ const getStatusIcon = (status: NewznabItemStatus): JSX.Element => {
   }
 }
 
-const NewznabItemRow = ({ createdAt, size, title, status, url }: Props): JSX.Element => {
+const NewznabItemRow = ({ createdAt, size, title, status, url, performerName }: Props): JSX.Element => {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const [isFetching, setIsFetching] = useState(false)
@@ -47,13 +48,13 @@ const NewznabItemRow = ({ createdAt, size, title, status, url }: Props): JSX.Ele
   // Create inline loading UI
   const isMutating = isFetching || isPending
 
-  const downloadNewznabItem = async (url: string): Promise<void> => {
+  const downloadNewznabItem = async (url: string, performerName: string): Promise<void> => {
     setIsFetching(true)
 
     // Mutate external data source
     await fetch('/api/nzbget/add', {
       method: HTTPMethod.POST,
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url, performerName }),
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -82,7 +83,7 @@ const NewznabItemRow = ({ createdAt, size, title, status, url }: Props): JSX.Ele
           disabled={isMutating}
           onClick={() => {
             void (async () => {
-              await downloadNewznabItem(url)
+              await downloadNewznabItem(url, performerName)
             })()
           }}
         >

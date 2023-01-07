@@ -1,5 +1,5 @@
 import NewznabResultRow from '../../../components/NewznabItemRow'
-import { searchNewznab } from '../../../utils'
+import { getPerformer, searchNewznab } from '../../../utils'
 
 export interface PageProps {
   searchParams?: {
@@ -15,7 +15,9 @@ export const revalidate = 10 // revalidate every 10 seconds
 const Page = async ({ searchParams, params: { id } }: PageProps): Promise<JSX.Element> => {
   if (searchParams?.q == null) return <span>Error</span>
 
-  const items = await searchNewznab(searchParams.q, id)
+  const [items, performer] = await Promise.all([searchNewznab(searchParams.q, id), getPerformer(id)])
+  if (performer == null) return <span>Error</span>
+
   return (
     <main className="mx-4">
       <table className="w-full table-auto">
@@ -30,7 +32,12 @@ const Page = async ({ searchParams, params: { id } }: PageProps): Promise<JSX.El
 
         <tbody>
           {items.map(({ createdAt, updatedAt, publishedAt, ...rest }, index) => (
-            <NewznabResultRow {...rest} createdAt={createdAt.toISOString()} key={index} />
+            <NewznabResultRow
+              performerName={performer.name}
+              {...rest}
+              createdAt={createdAt.toISOString()}
+              key={index}
+            />
           ))}
         </tbody>
       </table>

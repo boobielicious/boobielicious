@@ -111,7 +111,7 @@ export const searchNewznab = async (q: string, stashId: string): Promise<Newznab
   return items
 }
 
-export const downloadNewznab = async (url: string): Promise<NewznabItem | undefined> => {
+export const downloadNewznab = async (url: string, performerName: string): Promise<NewznabItem | undefined> => {
   const findNzbGetItem = async (url: string): Promise<Item | undefined> => {
     const nzbgetItems = (await nzbget.getAllItems()).sort((a, b) => a.NZBID - b.NZBID)
 
@@ -133,7 +133,13 @@ export const downloadNewznab = async (url: string): Promise<NewznabItem | undefi
     return newznabItem != null ? newznabItem : undefined
   }
 
-  await nzbget.append({ addPaused: true, nzbContent: url, priority: -100, category: process.env.NZBGET_CATEGORY })
+  await nzbget.append({
+    addPaused: true,
+    nzbContent: url,
+    priority: -100,
+    category: process.env.NZBGET_CATEGORY,
+    ppParameters: ['MovePerformer.py:', 'Yes', 'MovePerformer.py:PerformerName', performerName]
+  })
 
   const nzbgetItem = await findNzbGetItem(url)
 

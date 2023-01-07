@@ -6,9 +6,10 @@ import { HTTPMethod } from '../../../lib/utils'
 
 export interface UrlParams {
   url: string
+  performerName: string
 }
 
-export const isUrl = (obj: any): obj is UrlParams => obj.url !== undefined
+export const isUrl = (obj: any): obj is UrlParams => obj.url !== undefined && obj.performerName !== undefined
 
 const handler = async ({ method, body }: NextApiRequest, res: NextApiResponse<NewznabItem>): Promise<void> => {
   switch (method) {
@@ -17,11 +18,12 @@ const handler = async ({ method, body }: NextApiRequest, res: NextApiResponse<Ne
         res.status(400).end('Invalid params')
         return
       }
-      const { url } = body
+      const { url, performerName } = body
 
-      const item = await downloadNewznab(url)
+      const item = await downloadNewznab(url, performerName)
       if (item != null) {
         res.status(200).json(item)
+        return
       }
 
       res.status(401).end()
