@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@prisma/client": "4.8.1",
-    "bullmq": "3.5.2",
+    "bullmq": "3.5.3",
     "class-transformer": "0.5.1",
     "fs-extra": "11.1.0",
     "graphql": "16.6.0",
