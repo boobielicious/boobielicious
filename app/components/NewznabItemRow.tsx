@@ -1,12 +1,13 @@
 'use client'
 
 import { NewznabItemStatus } from '@prisma/client'
+import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { IoCloudDone, IoCloudDownload, IoCloudOffline, IoCloudOutline } from 'react-icons/io5'
 import { MdDeleteForever, MdError, MdPauseCircle } from 'react-icons/md'
 
-import { HTTPMethod } from '../../lib/utils'
+import { groupReleaseRegEx, HTTPMethod } from '../../lib/utils'
 import Bytes from './Bytes'
 
 interface Props {
@@ -14,7 +15,6 @@ interface Props {
   size: number
   createdAt: string
   status: NewznabItemStatus
-  // stashId: string
   url: string
 }
 
@@ -69,7 +69,13 @@ const NewznabItemRow = ({ createdAt, size, title, status, url }: Props): JSX.Ele
   }
 
   return (
-    <tr className="hover:bg-neutral-200 hover:dark:bg-neutral-800">
+    <tr
+      className={clsx(
+        'hover:bg-neutral-200',
+        'hover:dark:bg-neutral-800',
+        title.match(groupReleaseRegEx) != null ? 'bg-green-50 dark:bg-green-900' : ''
+      )}
+    >
       <td className="break-all">
         <button
           className="hover:font-bold"

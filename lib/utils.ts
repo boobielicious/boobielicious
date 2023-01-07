@@ -1,3 +1,5 @@
+export const groupReleaseRegEx = /([\w\d]*).([\d]{2}.[\d]{2}.[\d]{2}).([\w\d.]*).XXX.(720p|1080p|2160p)./gm
+
 export const promiseSerial = async <T>(funcs: Array<() => Promise<T>>): Promise<T[]> =>
   await funcs.reduce(
     async (promise, func) => await promise.then(async result => await func().then(Array.prototype.concat.bind(result))),
