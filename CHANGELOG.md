@@ -1,3 +1,15 @@
+# [1.9.0](https://github.com/boobielicious/boobielicious/compare/1.8.0...1.9.0) (2023-01-07)
+
+
+### Bug Fixes
+
+* fixed group release regex by permitting dashes ([f7d7591](https://github.com/boobielicious/boobielicious/commit/f7d75913b4084f9a0cceca3cdd13591a8f778a10))
+
+
+### Features
+
+* added nzb download handling support for nzbget ([cc02844](https://github.com/boobielicious/boobielicious/commit/cc02844e04dad17105830cc831b33979f1a63f54))
+
 # [1.8.0](https://github.com/boobielicious/boobielicious/compare/1.7.4...1.8.0) (2023-01-07)
 
 
