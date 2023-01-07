@@ -5,7 +5,7 @@ import { NewznabItem, NewznabItemStatus } from '@prisma/client'
 import { StashPerformerFieldsFragment } from '../generated/stash'
 import { Item, nzbget } from './nzbget'
 import { nzbhydra } from './nzbhydra'
-import { convertCupSize, Performer } from './performer'
+import { convertCupSize, CupSize, Performer } from './performer'
 import { prisma } from './prisma'
 import { stash } from './stash'
 import { client as twitterClient } from './twitter'
@@ -13,6 +13,14 @@ import { promiseSerial } from './utils'
 
 const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Performer => {
   const { name, aliases, photo, hasFakeBoobs, isFavorite, measurements, instagram, twitter, id } = stashPerformer
+  const bandSize =
+    measurements != null && measurements.split(/[a-zA-Z]/)[0] !== ''
+      ? parseInt(measurements.split(/[a-zA-Z]/)[0], 10)
+      : undefined
+  const cupSize: CupSize | undefined =
+    measurements != null && measurements.split(/[\d]{2,3}/).join('') !== ''
+      ? convertCupSize(measurements.split(/[\d]{2,3}/).join(''))
+      : undefined
   return {
     name: name as string,
     aliases:
@@ -24,11 +32,8 @@ const convertStashPerformer = (stashPerformer: StashPerformerFieldsFragment): Pe
         : [],
     photo: photo != null ? (photo.length > 0 ? photo : undefined) : undefined,
     images: photo != null ? [photo] : [],
-    bandSize: measurements != null && measurements !== '' ? parseInt(measurements.split(/[a-zA-Z]/)[0], 10) : undefined,
-    cupSize:
-      measurements != null && measurements !== ''
-        ? convertCupSize(measurements.split(/[\d]{2,3}/).join(''))
-        : undefined,
+    bandSize,
+    cupSize,
     hasNaturalBoobs:
       hasFakeBoobs != null ? (hasFakeBoobs === 'No' ? true : hasFakeBoobs === 'Yes' ? false : undefined) : undefined,
     twitter: twitter != null ? (twitter.length > 0 ? twitter : undefined) : undefined,
