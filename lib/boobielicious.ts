@@ -1,11 +1,11 @@
 // import 'server-only'
 
-import { NewznabItem, NewznabItemStatus } from '@prisma/client'
+import { type NewznabItem, NewznabItemStatus } from '@prisma/client'
 
-import { StashPerformerFieldsFragment } from '../generated/stash'
-import { Item, nzbget } from './nzbget'
+import { type StashPerformerFieldsFragment } from '../generated/stash'
+import { type Item, nzbget } from './nzbget'
 import { nzbhydra } from './nzbhydra'
-import { convertCupSize, CupSize, Performer } from './performer'
+import { convertCupSize, type CupSize, type Performer } from './performer'
 import { prisma } from './prisma'
 import { stash } from './stash'
 import { client as twitterClient } from './twitter'
@@ -134,7 +134,7 @@ export const downloadNewznab = async (url: string, performerName: string): Promi
   }
 
   await nzbget.append({
-    addPaused: true,
+    addPaused: false,
     nzbContent: url,
     priority: -100,
     category: process.env.NZBGET_CATEGORY,

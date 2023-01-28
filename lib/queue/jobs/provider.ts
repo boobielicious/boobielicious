@@ -1,6 +1,6 @@
 import { plainToInstance } from 'class-transformer'
 
-import { BackgroundJob } from '../job'
+import { type BackgroundJob } from '../job'
 import { CleanupDownloads } from './cleanupDownloads.job'
 import { CleanupSortedVideos } from './cleanupSortedVideos.job'
 import { UpdateItemStatus } from './updateItemStatus.job'

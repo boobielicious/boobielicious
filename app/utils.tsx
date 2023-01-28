@@ -1,4 +1,4 @@
-import { NewznabItem } from '@prisma/client'
+import { type NewznabItem } from '@prisma/client'
 import { cache } from 'react'
 
 import {
@@ -6,7 +6,7 @@ import {
   getPerformers as fetchPerformers,
   searchNewznab as search
 } from '../lib/boobielicious'
-import { Performer } from '../lib/performer'
+import { type Performer } from '../lib/performer'
 
 export const getPerformer = cache(async (id: string): Promise<Performer | undefined> => await fetchPerformer(id))
 export const getPerformers = cache(async (): Promise<Performer[]> => await fetchPerformers())

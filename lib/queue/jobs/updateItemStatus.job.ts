@@ -1,11 +1,11 @@
-import { Job } from 'bullmq'
+import { type Job } from 'bullmq'
 
 import { getNewnabItemStatus } from '../../boobielicious'
 import logger from '../../logger'
-import { Item, nzbget } from '../../nzbget'
+import { type Item, nzbget } from '../../nzbget'
 import { prisma } from '../../prisma'
 import { promiseSerial } from '../../utils'
-import { BackgroundJob, BaseJob } from '../job'
+import { type BackgroundJob, BaseJob } from '../job'
 
 export class UpdateItemStatus extends BaseJob implements BackgroundJob {
   constructor(public payload: Record<string, unknown>) {

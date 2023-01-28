@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty'
 
 import logger from '../logger'
 import { concurrency, connection } from './config'
-import { BackgroundJob } from './job'
+import { type BackgroundJob } from './job'
 import { getJobInstance } from './jobs/provider'
 
 export const defaultQueueName = 'background-queue'

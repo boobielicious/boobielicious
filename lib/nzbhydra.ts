@@ -108,7 +108,7 @@ export default class NZBHydra {
     }
     // console.info(`Searching NZBHydra for ${q} with offset ${offset}...`)
 
-    // @ts-expect-error
+    // @ts-expect-error URLSearchParams only supports an object of strings hence a plain JavaScript object is not supported
     const url = `${this.endpoint}/api?${new URLSearchParams(params).toString()}`
     const response = await fetch(url, { headers: { 'User-Agent': 'Boobielicious' } })
     const { channel }: SearchResponse = await response.json()

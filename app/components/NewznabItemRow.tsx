@@ -1,6 +1,6 @@
 'use client'
 
-import { NewznabItemStatus } from '@prisma/client'
+import { type NewznabItemStatus } from '@prisma/client'
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'

@@ -1,4 +1,4 @@
-import { Status as Tweet } from 'twitter-d'
+import { type Status as Tweet } from 'twitter-d'
 
 export interface UserTimelineParams {
   screen_name?: string
@@ -16,7 +16,7 @@ export class Twitter {
 
   async userTimeline(params: UserTimelineParams): Promise<Tweet[]> {
     const response = await fetch(
-      // @ts-expect-error
+      // @ts-expect-error URLSearchParams only supports an object of strings hence a plain JavaScript object is not supported
       `https://api.twitter.com/1.1/statuses/user_timeline.json?${new URLSearchParams(params).toString()}`,
       {
         headers: {

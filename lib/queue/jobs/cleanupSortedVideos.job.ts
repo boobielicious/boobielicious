@@ -1,10 +1,10 @@
-import { Job } from 'bullmq'
+import { type Job } from 'bullmq'
 import * as fs from 'fs-extra'
 import path from 'path'
 
 import logger from '../../logger'
 import { stash } from '../../stash'
-import { BackgroundJob, BaseJob } from '../job'
+import { type BackgroundJob, BaseJob } from '../job'
 
 export class CleanupSortedVideos extends BaseJob implements BackgroundJob {
   constructor(public payload: Record<string, unknown>) {
