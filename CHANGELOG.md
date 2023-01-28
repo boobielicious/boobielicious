@@ -1,3 +1,19 @@
+## [1.9.1](https://github.com/boobielicious/boobielicious/compare/1.9.0...1.9.1) (2023-01-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency bullmq to v3.5.10 ([5e80ed7](https://github.com/boobielicious/boobielicious/commit/5e80ed797c30f4b3250a0f11132597b07865d5ab))
+* **deps:** update dependency bullmq to v3.5.11 ([c1974f2](https://github.com/boobielicious/boobielicious/commit/c1974f26a3c61da05a640c6d3708b37e6ed3c57e))
+* **deps:** update dependency bullmq to v3.5.4 ([c46c847](https://github.com/boobielicious/boobielicious/commit/c46c847141305cb5186682aea9d97799ef52a39b))
+* **deps:** update dependency bullmq to v3.5.5 ([399f8e3](https://github.com/boobielicious/boobielicious/commit/399f8e349e4ddb339d965ecedf7b7d4531696535))
+* **deps:** update dependency bullmq to v3.5.6 ([e953060](https://github.com/boobielicious/boobielicious/commit/e953060dcf7143202e65582d69694fc238ca370b))
+* **deps:** update dependency bullmq to v3.5.7 ([951ac15](https://github.com/boobielicious/boobielicious/commit/951ac1581521b93945d20a50f393c29a5bb66f01))
+* **deps:** update dependency bullmq to v3.5.8 ([9629d5c](https://github.com/boobielicious/boobielicious/commit/9629d5ca0869c9fecfdab18abb26e3cfcd343d55))
+* **deps:** update dependency bullmq to v3.5.9 ([fdf1fe5](https://github.com/boobielicious/boobielicious/commit/fdf1fe53a137b7bb42232e8a7eabbbc7a15daa55))
+* **deps:** update prisma monorepo to v4.9.0 ([aa3ffe4](https://github.com/boobielicious/boobielicious/commit/aa3ffe43515f591ef02c03b085f995cbcc87f043))
+* fixed typo in logo ([e7a00db](https://github.com/boobielicious/boobielicious/commit/e7a00db7f69353d1019b52733445353bdd7d456e))
+
 # [1.9.0](https://github.com/boobielicious/boobielicious/compare/1.8.0...1.9.0) (2023-01-07)
 
 
