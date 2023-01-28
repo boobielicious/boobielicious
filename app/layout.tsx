@@ -18,7 +18,7 @@ const RootLayout = ({ children }: Props): JSX.Element => {
             <Link href="/" className="select-none text-xl font-bold tracking-tighter">
               {/* <span className="sm:hidden">B</span> */}
               {/* <span className="hidden sm:block">Booblielicious&reg;</span> */}
-              <span className="block">Booblielicious&reg;</span>
+              <span className="block">Boobielicious&reg;</span>
             </Link>
           </header>
 
