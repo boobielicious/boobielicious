@@ -35,7 +35,7 @@
     "reactjs-popup": "2.0.5",
     "server-only": "0.0.1",
     "sharp": "0.31.3",
-    "tslog": "4.7.1"
+    "tslog": "4.7.2"
   },
   "devDependencies": {
     "@brpaz/semantic-release-helm": "1.1.0",
