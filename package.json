@@ -18,7 +18,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@prisma/client": "4.10.0",
+    "@prisma/client": "4.10.1",
     "bullmq": "3.6.4",
     "class-transformer": "0.5.1",
     "clsx": "1.2.1",
@@ -70,7 +70,7 @@
     "postcss": "8.4.21",
     "prettier": "2.8.4",
     "prettier-plugin-tailwindcss": "0.2.2",
-    "prisma": "4.10.0",
+    "prisma": "4.10.1",
     "semantic-release-helm3": "2.3.4",
     "stylelint": "14.16.1",
     "stylelint-config-hudochenkov": "8.0.1",
