@@ -40,8 +40,8 @@
   "devDependencies": {
     "@brpaz/semantic-release-helm": "1.1.0",
     "@codedependant/semantic-release-docker": "4.3.0",
-    "@commitlint/cli": "17.4.3",
-    "@commitlint/config-conventional": "17.4.3",
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
     "@graphql-codegen/cli": "2.16.5",
     "@graphql-codegen/typescript": "2.8.8",
     "@graphql-codegen/typescript-graphql-request": "4.5.8",
