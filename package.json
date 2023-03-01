@@ -24,7 +24,7 @@
     "clsx": "1.2.1",
     "fs-extra": "11.1.0",
     "graphql": "16.6.0",
-    "graphql-request": "5.1.0",
+    "graphql-request": "5.2.0",
     "lodash.isempty": "4.4.0",
     "lodash.mergewith": "4.6.2",
     "next": "13.2.3",
