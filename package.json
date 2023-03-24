@@ -46,7 +46,7 @@
     "@graphql-codegen/typescript": "3.0.2",
     "@graphql-codegen/typescript-graphql-request": "4.5.8",
     "@graphql-codegen/typescript-operations": "3.0.2",
-    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.7",
     "@types/fs-extra": "11.0.1",
