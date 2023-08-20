@@ -52,7 +52,7 @@
     "@types/fs-extra": "11.0.1",
     "@types/lodash.isempty": "4.4.7",
     "@types/lodash.mergewith": "4.6.7",
-    "@types/node": "18.17.0",
+    "@types/node": "18.17.6",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
@@ -83,7 +83,7 @@
     "typescript": "4.9.5"
   },
   "volta": {
-    "node": "18.17.0",
+    "node": "18.17.1",
     "npm": "9.6.7"
   }
 }
